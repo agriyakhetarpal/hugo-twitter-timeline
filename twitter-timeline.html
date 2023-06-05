@@ -1,0 +1,38 @@
+{{/*
+
+doc: A Hugo shortcode for embedding a Twitter timeline onto a page. The supported parameters are: the Twitter username
+to be embedded, the ISO 639–1 language code (set automatically by Twitter by default), the width of the timeline (in
+pixels), the height of the timeline (in pixels), whether to enable Do Not Track (enabled by default to preserve your
+privacy), and the theme of the timeline (light or dark, defaults to light). The shortcode is based on the Twitter
+widgets code, which can be accessed via https://publish.twitter.com/ and https://platform.twitter.com/widgets.js.
+
+*/}}
+
+{{- $username := .Get "username" -}}
+
+{{ if not $username }}
+{{ errorf "Error: Twitter username was not provided" }}
+{{ end }}
+
+{{ $language := .Get "lang" }}
+{{ $width := .Get "width" }}
+{{ $height := .Get "height" }}
+
+{{ $donottrack := .Get "donottrack" }}
+{{ if not $donottrack }}
+<!-- analytics are disabled by default -->
+{{ $donottrack = "true" }}
+{{ end }}
+
+
+{{ $theme := .Get "theme" }}
+{{ if not $theme }}
+{{ $theme = "light" }}
+{{ end }}
+
+<div class="twitter-timeline-container">
+    <a class="twitter-timeline" href="https://twitter.com/{{ $username }}" data-lang="{{ $language }}"
+        data-width="{{ $width }}" data-height="{{ $height }}" data-dnt="{{ $donottrack }}" data-theme="{{ $theme }}">
+        Tweets by {{ $username }}</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
