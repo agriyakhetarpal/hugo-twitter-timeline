@@ -1,9 +1,12 @@
+> [!TIP]
+> The Twitter timeline may fail to display in certain scenarios, however, this error comes not from Twitter and not from Hugo or this shortcode. A common cause of error is if Twitter fails to retrieve sufficient login credentials in the browser client when serving requests on a webpage. As of 25th December 2023, this has not been fixed on Twitter's end.
+
 # hugo-twitter-timeline
 
 A simple Hugo shortcode for embedding a Twitter timeline, based on the Twitter
 widgets code, which can be accessed via https://publish.twitter.com/ and https://platform.twitter.com/widgets.js
 
-# Parameters
+## Parameters
 
 The supported parameters are
 - `username`: The username of the Twitter account to embed the timeline for (required)
@@ -13,7 +16,7 @@ The supported parameters are
 - `donottrack`: Whether to enable the [Do Not Track](https://developer.twitter.com/en/docs/twitter-for-websites/privacy) feature, either `true` or `false` – defaults to `true` to preserve your privacy
 - `theme`: The theme to use for the timeline, either `light` or `dark` – defaults to `light`
 
-# Usage
+## Usage
 
 To use the shortcode, simply add the following to your Hugo content file(s) and/or customise as needed:
 
@@ -23,10 +26,10 @@ To use the shortcode, simply add the following to your Hugo content file(s) and/
 
 assuming that the shortcode is saved as `twitter-timeline.html` in your Hugo theme's `layouts/shortcodes` directory.
 
-# License
+## License
 
 This project is licensed under the [MIT License](LICENSE).
 
-# Footnotes
+## Footnotes
 
-Feel free to use it across your projects and star this repository. If you have any questions or suggestions, please feel free to open an issue or a pull request.
+Please feel free to use it across your projects and star this repository. If you have any questions or suggestions, please feel free to open an issue or a pull request.
